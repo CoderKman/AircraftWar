@@ -8,7 +8,8 @@
 
 import UIKit
 
-class KMDrawView: UIView {
+// 遵守协议
+class KMDrawView: UIView ,KMTopBarViewDelegate{
     
     weak var topBarView:KMTopBarView!
     
@@ -27,7 +28,8 @@ class KMDrawView: UIView {
     
     var allTime:Int  = 0        // 全局时间
     let updateTime:Int = 60 * 10 // 每隔n秒,升一级
-    var level:Int      = 1      // 当前等级
+    var level:Int      = 1      // 当前关卡
+    var levelCount:Int = 8      // 最大关卡数
     var score:Int      = 0      // 积分
     let ScoreStep      = 100    // 每次加100积分
     
@@ -61,11 +63,10 @@ class KMDrawView: UIView {
         self.addGestureRecognizer(panGesture)
         
         // 初始化topBar
-//        let nibs:NSArray = NSBundle.mainBundle().loadNibNamed("KMTopBarView", owner: self, options: nil)
-//        var topBar = nibs.lastObject as! KMTopBarView
         var topBar = KMTopBarView(frame: CGRectMake(0, 0, screenW, 45))
         self.addSubview(topBar)
         self.topBarView = topBar
+        self.topBarView.delegate = self
     }
     
     // 让我的战机绑定拖动手势
@@ -80,7 +81,6 @@ class KMDrawView: UIView {
                 
                 // 复位
                 event.setTranslation(CGPointZero, inView: self)
-//                println(NSThread.currentThread())
             }
         }
     }
@@ -88,19 +88,10 @@ class KMDrawView: UIView {
     // 定时刷新
     func change(link:CADisplayLink){
         
-        if self.meAircraft == nil{
-            self.paused()
-            return
-        }
+        // 刷新时间
+        self.setTime()
         
         self.otherQueue.addOperationWithBlock { () -> Void in
-            // 最多8个关卡
-            if self.level > 8
-            {
-                self.paused()
-            }
-            // 刷新时间
-            self.setTime()
             
             // 添加敌机
             self.creatEnemyAircraft()
@@ -149,9 +140,19 @@ class KMDrawView: UIView {
         
         // 每隔self.updateTime秒就升一级，加快速度 (CADisplayLink 刷新的速度是 1/60秒)
         if  ++self.allTime % self.updateTime == 0 {
+            println(self.level)
             self.level++
+            
+            // 通关
+            if self.level > self.levelCount
+            {
+                println("通关啦！！！！")
+                self.paused()
+            }else{
+                self.topBarView.levelLabel.text = String(self.levelCount) + " - " + String(self.level)
+            }
         }
-        println("等级：" + String(self.level))
+        
     }
     
     // 刷新积分
@@ -307,5 +308,8 @@ class KMDrawView: UIView {
         return CGFloat(arc4random_uniform(UInt32(self.screenW)))
     }
     
-    
+    // 协议方法
+    func operationClick() {
+        self.link?.paused = !self.link!.paused
+    }
 }

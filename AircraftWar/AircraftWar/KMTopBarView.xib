@@ -8,6 +8,8 @@
             <connections>
                 <outlet property="HPProgressView" destination="xb0-WZ-RhS" id="Ovf-nv-diC"/>
                 <outlet property="content" destination="kwD-25-dOH" id="dCT-np-dc6"/>
+                <outlet property="levelLabel" destination="6Ca-i9-j7B" id="cDH-zl-AIs"/>
+                <outlet property="pauseBtn" destination="aJj-DV-zsA" id="WxR-TP-mU1"/>
                 <outlet property="scoreLabel" destination="uja-R2-MFJ" id="SGJ-4h-Wdz"/>
             </connections>
         </placeholder>
@@ -16,14 +18,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF3-08-4vd">
-                    <rect key="frame" x="5" y="10" width="51" height="35"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF3-08-4vd">
+                    <rect key="frame" x="5" y="10" width="33" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uja-R2-MFJ">
-                    <rect key="frame" x="64" y="10" width="114" height="35"/>
+                    <rect key="frame" x="40" y="10" width="114" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="114" id="bSy-Zc-q8E"/>
                     </constraints>
@@ -31,54 +33,74 @@
                     <color key="textColor" red="0.92447916669999997" green="0.35551745969999998" blue="0.37272647019999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生命值" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDs-e6-xdv">
-                    <rect key="frame" x="328" y="15" width="42" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-DV-zsA">
-                    <rect key="frame" x="219" y="15" width="46" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="mAB-jm-iw5"/>
-                        <constraint firstAttribute="width" constant="46" id="nYe-7Y-o4b"/>
-                    </constraints>
-                    <state key="normal" title="暂停">
-                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="xb0-WZ-RhS">
-                    <rect key="frame" x="219" y="35" width="150" height="2"/>
+                    <rect key="frame" x="199" y="35" width="170" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="9wT-Iu-SRn"/>
-                        <constraint firstAttribute="width" constant="150" id="BYg-hf-b6S"/>
+                        <constraint firstAttribute="width" constant="170" id="BYg-hf-b6S"/>
                     </constraints>
                 </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关卡:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-Yb-Zxh">
+                    <rect key="frame" x="293" y="15" width="33" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="oB5-LE-AEw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.36630234299999997" green="0.53330633360000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 - 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-i9-j7B">
+                    <rect key="frame" x="336" y="15" width="34" height="20"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                    <color key="textColor" red="0.49924993159999997" green="1" blue="0.94542073729999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-DV-zsA">
+                    <rect key="frame" x="248" y="15" width="40" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="mAB-jm-iw5"/>
+                        <constraint firstAttribute="width" constant="40" id="nYe-7Y-o4b"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="暂停">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pauseClick:" destination="-1" eventType="touchUpInside" id="cbl-UY-rT8"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="aJj-DV-zsA" firstAttribute="leading" secondItem="xb0-WZ-RhS" secondAttribute="leading" id="0IF-u1-ImJ"/>
                 <constraint firstAttribute="bottom" secondItem="uja-R2-MFJ" secondAttribute="bottom" id="33h-WU-WSJ"/>
+                <constraint firstItem="ACf-Yb-Zxh" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="15" id="41y-Xb-rB5"/>
+                <constraint firstItem="ACf-Yb-Zxh" firstAttribute="leading" secondItem="aJj-DV-zsA" secondAttribute="trailing" constant="5" id="5jn-t4-rZ1"/>
                 <constraint firstItem="fF3-08-4vd" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="10" id="7MP-tZ-QgU"/>
-                <constraint firstItem="aJj-DV-zsA" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="15" id="8ez-Po-5eV"/>
                 <constraint firstItem="fF3-08-4vd" firstAttribute="leading" secondItem="kwD-25-dOH" secondAttribute="leading" constant="5" id="9fb-w7-KF8"/>
-                <constraint firstItem="xb0-WZ-RhS" firstAttribute="top" secondItem="EDs-e6-xdv" secondAttribute="bottom" constant="8" symbolic="YES" id="BCB-5b-ZAc"/>
+                <constraint firstItem="6Ca-i9-j7B" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="15" id="CLB-MT-Zh7"/>
                 <constraint firstItem="uja-R2-MFJ" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="10" id="DJ7-vw-7wK"/>
-                <constraint firstAttribute="trailing" secondItem="EDs-e6-xdv" secondAttribute="trailing" constant="5" id="T8r-cE-YYf"/>
+                <constraint firstAttribute="trailing" secondItem="6Ca-i9-j7B" secondAttribute="trailing" constant="5" id="G7T-zr-KSG"/>
                 <constraint firstAttribute="trailing" secondItem="xb0-WZ-RhS" secondAttribute="trailing" constant="6" id="Upl-Mf-AOs"/>
-                <constraint firstItem="uja-R2-MFJ" firstAttribute="leading" secondItem="fF3-08-4vd" secondAttribute="trailing" constant="8" id="Wdv-jj-Oq8"/>
-                <constraint firstItem="EDs-e6-xdv" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="15" id="arL-Vl-9fc"/>
-                <constraint firstItem="xb0-WZ-RhS" firstAttribute="top" secondItem="EDs-e6-xdv" secondAttribute="bottom" constant="5" id="gFM-fy-PdL"/>
+                <constraint firstItem="uja-R2-MFJ" firstAttribute="leading" secondItem="fF3-08-4vd" secondAttribute="trailing" constant="2" id="Wdv-jj-Oq8"/>
+                <constraint firstItem="ACf-Yb-Zxh" firstAttribute="leading" secondItem="xb0-WZ-RhS" secondAttribute="leading" id="bqs-5I-MtR"/>
+                <constraint firstItem="aJj-DV-zsA" firstAttribute="top" secondItem="kwD-25-dOH" secondAttribute="top" constant="15" id="f2C-5h-or2"/>
                 <constraint firstAttribute="bottom" secondItem="xb0-WZ-RhS" secondAttribute="bottom" constant="8" id="gOC-PQ-pVr"/>
+                <constraint firstItem="aJj-DV-zsA" firstAttribute="leading" secondItem="xb0-WZ-RhS" secondAttribute="leading" id="jKp-zt-alx"/>
+                <constraint firstItem="6Ca-i9-j7B" firstAttribute="leading" secondItem="ACf-Yb-Zxh" secondAttribute="trailing" constant="10" id="lAP-DK-UUz"/>
                 <constraint firstAttribute="bottom" secondItem="fF3-08-4vd" secondAttribute="bottom" id="ofR-12-6U1"/>
+                <constraint firstItem="6Ca-i9-j7B" firstAttribute="leading" secondItem="ACf-Yb-Zxh" secondAttribute="trailing" constant="8" id="uac-ZW-kBZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="BCB-5b-ZAc"/>
-                    <exclude reference="gFM-fy-PdL"/>
+                    <exclude reference="jKp-zt-alx"/>
+                    <exclude reference="bqs-5I-MtR"/>
+                    <exclude reference="uac-ZW-kBZ"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="718.5" y="237.5"/>
